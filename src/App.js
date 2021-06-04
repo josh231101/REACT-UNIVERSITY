@@ -8,9 +8,12 @@ class App extends React.Component {
     // El constructor es el método que se ejecuta cuando se crea el componente
     super();
     // Binding this into our methods
-    this.update = this.update.bind(this);
-    this.substract = this.substract.bind(this);
-    // Aquí inicializamos el estado
+    // SMART WAY TO BIND THIS
+    const METHODS = ["update", "substract", "refresh"];
+    METHODS.forEach((method) => {
+      this[method] = this[method].bind(this);
+    });
+
     this.state = {
       cantidad: 0
     };
@@ -21,6 +24,9 @@ class App extends React.Component {
   }
   substract() {
     this.setState({ cantidad: this.state.cantidad - 1 });
+  }
+  refresh() {
+    this.setState({ cantidad: 0 });
   }
   render() {
     const { edad, nombre } = this.props;
@@ -36,6 +42,7 @@ class App extends React.Component {
         <button onClick={this.update.bind(this)}>
           binding this in the function
         </button>
+        <button onClick={this.refresh}>Reset</button>
       </div>
     );
   }
