@@ -16,21 +16,32 @@ class App extends React.Component {
   refresh = () => {
     this.setState({ cantidad: 0 });
   };
+
   render() {
-    const { edad, nombre } = this.props;
+    const { name, price } = this.props;
+    const { cantidad } = this.state;
+
+    const styles = {
+      border: "1px solid black",
+      marginBottom: "1em",
+      borderRadius: "0.5em",
+      padding: "1em",
+      background: cantidad ? "linear-gradient(45deg, black, #4a02f7)" : "#FFF",
+      color: cantidad ? "#FFF" : "#000",
+      transition: "all 400ms ease-out"
+    };
     return (
-      <div>
-        <h3>Hola</h3>
-        <p>
-          Soy {nombre} y tengo {edad}
-        </p>
-        <h4>Cantidad de clicks: {this.state.cantidad}</h4>
-        <button onClick={this.update}>Add</button>
-        <button onClick={this.substract}> substract</button>
-        <button onClick={this.update.bind(this)}>
+      <div style={styles}>
+        <h2>{name}</h2>
+        <h4>Cantidad: {cantidad}</h4>
+        <button onClick={this.update}>+</button>
+        {cantidad > 0 && <button onClick={this.substract}>-</button>}
+        {/*<button onClick={this.update.bind(this)}>
           binding this in the function
-        </button>
-        <button onClick={this.refresh}>Reset</button>
+        </button>*/}
+        <button onClick={this.refresh}>Limpiar</button>
+        <hr />
+        <p>El total es {price * cantidad}</p>
       </div>
     );
   }

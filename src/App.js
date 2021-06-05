@@ -5,8 +5,8 @@ import TarjetaFruta from "./components/TarjetaFruta";
 const App = () => {
   return (
     <>
-      <TarjetaFruta name="Josue" edad={19} />
-      <TarjetaFruta name="DAvid" edad={20} />
+      <TarjetaFruta name="Sandia" price={10} />
+      <TarjetaFruta name="Naranjas" price={5.4} />
     </>
   );
 };
