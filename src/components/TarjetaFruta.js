@@ -1,7 +1,11 @@
 import React from "react";
-import "./TarjetaFruta.css";
+//import "./TarjetaFruta.css";
 // Esto funciona ya que webpack revisa
 // los imports de todos los archivos, toma ese css y lo inyectaa la app.
+// CSS MODULES
+import styles from "./TarjetaFruta.module.css";
+// UN módulo de css no se aplica auto
+// Necesitamos acceder a styles.card o styles['card--active']
 
 class App extends React.Component {
   // Una clase tiene métodos
@@ -24,7 +28,7 @@ class App extends React.Component {
     const { name, price } = this.props;
     const { cantidad } = this.state;
     // Dynamic classes with React
-    const clases = `TarjetaFruta ${cantidad && "TarjetaFruta--active"}`;
+    const clases = styles.card + ` ${cantidad && styles["card--active"]}`;
 
     return (
       <div className={clases}>
