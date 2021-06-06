@@ -8,21 +8,23 @@ import "./styles.css";
 import Gato from "./components/Gato";
 import MouseEvent from "./components/MouseEvent";
 import Events from "./components/Events";
+import Hijo from "./components/HIjo";
 
 const App = () => {
   const [state, setState] = React.useState({ name: "Mushu" });
-
+  const [text, setText] = React.useState("");
   const otrosDatos = {
     raza: "tropical",
     peleasNocturnas: 400
   };
+  const manejador = (text) => setText(text);
   return (
     <>
       <h1> React Core</h1>
       <TarjetaFruta name="Sandia" price={10} />
       <TarjetaFruta name="Naranjas" price={5.4} />
       <hr />
-      <h1>Mutating the state of a component with function</h1>
+      <h2>Mutating the state of a component with function</h2>
       <Video />
       <hr />
       <Gato name="Minino" padre="lucy" age={2} {...otrosDatos} {...state} />
@@ -32,6 +34,11 @@ const App = () => {
       <h2>Persist events</h2>
       <Events />
       <hr />
+      <h2>Create personalized events</h2>
+      <div className="box blue">
+        <Hijo onSaludo={manejador} />
+        <h3>{text}</h3>
+      </div>
     </>
   );
 };
