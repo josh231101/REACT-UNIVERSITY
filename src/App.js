@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles.css";
 import TarjetaFruta from "./components/TarjetaFruta";
+import "./styles.css";
 
 const App = () => {
   return (
