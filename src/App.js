@@ -39,7 +39,25 @@ const App = () => {
         <Hijo onSaludo={manejador} />
         <h3>{text}</h3>
       </div>
+      <hr />
+      <h2>Prop children</h2>
+      <Banner>Hello Folks</Banner>
     </>
   );
 };
+
+const Banner = ({ children, company }) => {
+  const cStyles = {
+    border: "1px solid black",
+    background: "lightgreen",
+    padding: "32px"
+  };
+  return (
+    <div style={cStyles}>
+      <h4>{company}</h4>
+      <p>{children}</p>
+    </div>
+  );
+};
+
 export default App;
