@@ -8,6 +8,16 @@ class PropTipos extends Component {
     email: PropTypes.string
   };
 
+  static defaultProps = {
+    name: "User not defined",
+    bio: "No description defined",
+    email: "admin@heroguest.com",
+    // noop to prevent component crashes
+    sendEmail: () => undefined
+  };
+
+  saluda = () => this.props.sendEmail();
+
   render() {
     const { name, bio, email } = this.props;
 
@@ -16,6 +26,7 @@ class PropTipos extends Component {
         <h4>{name}</h4>
         <p>{bio}</p>
         <p>{email}</p>
+        <button onClick={this.saluda}>JS noOP</button>
       </div>
     );
   }
