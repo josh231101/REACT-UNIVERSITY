@@ -10,6 +10,7 @@ import MouseEvent from "./components/MouseEvent";
 import Events from "./components/Events";
 import Hijo from "./components/HIjo";
 import "./components/Destructure";
+import RFragments from "./components/RFragments";
 
 const App = () => {
   const [state, setState] = React.useState({ name: "Mushu" });
@@ -43,6 +44,9 @@ const App = () => {
       <hr />
       <h2>Prop children</h2>
       <Banner>Hello Folks</Banner>
+      <hr />
+      <h2>React Fragments</h2>
+      <RFragments />
     </>
   );
 };
