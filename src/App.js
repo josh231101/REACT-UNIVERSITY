@@ -9,6 +9,7 @@ import Gato from "./components/Gato";
 import MouseEvent from "./components/MouseEvent";
 import Events from "./components/Events";
 import Hijo from "./components/HIjo";
+import "./components/Destructure";
 
 const App = () => {
   const [state, setState] = React.useState({ name: "Mushu" });
@@ -20,7 +21,7 @@ const App = () => {
   const manejador = (text) => setText(text);
   return (
     <>
-      <h1> React Core</h1>
+      <h1> Section 4: React Core</h1>
       <TarjetaFruta name="Sandia" price={10} />
       <TarjetaFruta name="Naranjas" price={5.4} />
       <hr />
